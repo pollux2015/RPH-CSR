@@ -7,10 +7,21 @@ import App from './App'
 import Home from './components/HelloFromVux'
 import Iconfont from './fonts/iconfont.css'
 import store from './store/index';
-// import Lodash from 'lodash'
 
+import Lodash from 'lodash';
+Object.defineProperty(Vue.prototype, '$lodash', {
+  get: function get() {
+    return Lodash;
+  }
+});
+
+// routers
 import Routes from './router/index'
 const router = Routes;
+
+// apis
+import Apis from './store/apis.js'
+Vue.use(Apis);
 
 import {Panel, Group, Cell, XButton } from 'vux'
 

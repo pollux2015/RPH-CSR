@@ -1,6 +1,6 @@
 <template>
   <div class="mine">
-    <panel :list="info" type="1"></panel>
+    <panel :list="userInfo" type="1"></panel>
     <group>
       <cell :title="cellItem.title" :link="cellItem.link" v-for="(cellItem, index) in funsA" :key="index" is-link>
         <span slot="icon" class="cell-icon">
@@ -35,11 +35,7 @@
 export default {
   data() {
     return {
-      info: [{
-        src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-        title: '张晓明',
-        desc: '186*****411'
-      }],
+      info: [],
       funsA: [{
         color: '#24AFFC',
         icon: 'interactive_fill',
@@ -84,6 +80,21 @@ export default {
         title: '退出'
       }]
     }
+  },
+  computed: {
+    userInfo() {
+      const storInfo = this.$store.getters.userInfo;
+      return [{
+        title: storInfo.name,
+        src: storInfo.avatar,
+        desc: storInfo.phone
+      }];
+    }
+  },
+  created() {
+    this.$apis.userInfo().then(res => {
+      this.$store.commit('userInfo', res.data);
+    });
   }
 }
 

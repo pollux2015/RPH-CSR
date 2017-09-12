@@ -7,14 +7,16 @@ const debug = process.env.NODE_ENV !== 'production';
 
 // states
 const state = {
-  metaName: '共租房',
+  metaName: '公租房',
   metaShow: true,
+  userInfo: {},
 };
 
 // getters
 const getters = {
   metaName: state => state.metaName,
-  metaVisible: state => state.metaShow
+  metaVisible: state => state.metaShow,
+  userInfo: state => state.userInfo,
 };
 
 // mutations
@@ -24,6 +26,9 @@ const mutations = {
   },
   metaVisible(state, status) {
     state.metaShow = status;
+  },
+  userInfo(state, info) {
+    state.userInfo = info;
   }
 };
 
