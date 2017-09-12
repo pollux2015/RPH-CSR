@@ -3,7 +3,7 @@ import qs from 'qs'
 import apiurl from './apiurl'
 import store from './index'
 import config from '../config.js'
-
+import mockConfig from './mockConfig.js'
 let apis = {};
 
 // 配置axios实例
@@ -21,7 +21,7 @@ let ainstance = axios.create({
     if (status >= 200 && status < 300) {
       return status >= 200 && status < 300; // default
     } else {
-      iView.Message.error('请求错误（' + status + ")，请尝试刷新网页。");
+      // iView.Message.error('请求错误（' + status + ")，请尝试刷新网页。");
     }
   },
 
@@ -76,7 +76,6 @@ for (let i in apiurl) {
           msg: '获取数据失败'
         });
       }
-
       // 如果返回code不为1, 则请求异常 [未登录, 没有权限]
       if (response.data.code != 1) {
         return Promise.reject(response.data);
@@ -98,7 +97,7 @@ for (let i in apiurl) {
         errorMsg = '获取数据失败';
       }
       if (!parmas.noErrorMsg) {
-        iView.Message.error(result.msg || errorMsg);
+        // iView.Message.error(result.msg || errorMsg);
       }
       return Promise.reject(result);
     });
