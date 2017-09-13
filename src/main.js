@@ -25,15 +25,30 @@ import Apis from './store/apis.js'
 Vue.use(Apis);
 
 // import Scroll from 'vue-mugen-scroll'
-import InfiniteLoading from './components/basic/srcoller';
+import LoadMore from './components/basic/srcoller';
 
-import {Panel, Group, Cell, XButton } from 'vux'
+import {Panel, Group, Cell, XButton, Checker, CheckerItem, Flexbox, FlexboxItem, ToastPlugin, Actionsheet, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress, XTextarea, XSwitch } from 'vux'
+
+
 Vue.component('Panel', Panel);
 Vue.component('Group', Group);
 Vue.component('Cell', Cell);
 Vue.component('XButton', XButton);
-Vue.component('InfiniteLoading', InfiniteLoading);
+Vue.component('LoadMore', LoadMore);
+Vue.component('Checker', Checker);
+Vue.component('CheckerItem', CheckerItem);
+Vue.component('Flexbox', Flexbox);
+Vue.component('FlexboxItem', FlexboxItem);
+Vue.component('Actionsheet', Actionsheet);
+Vue.component('Selector', Selector);
+Vue.component('PopupPicker', PopupPicker);
+Vue.component('Datetime', Datetime);
+Vue.component('ChinaAddressData', ChinaAddressData);
+Vue.component('XAddress', XAddress);
+Vue.component('XTextarea', XTextarea);
+Vue.component('XSwitch', XSwitch);
 
+Vue.use(ToastPlugin)
 
 
 FastClick.attach(document.body)

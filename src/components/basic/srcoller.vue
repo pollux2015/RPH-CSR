@@ -8,7 +8,8 @@
     </span>
     <span slot="spinner">
       <div style="padding: 10px">
-        <inline-loading></inline-loading><span style="vertical-align:middle;display:inline-block;font-size:14px;">&nbsp;&nbsp;加载中</span>
+        <inline-loading></inline-loading>
+        <span style="vertical-align:middle;display:inline-block;font-size:14px;">&nbsp;&nbsp;加载中</span>
     </div>
     </span>
   </InfiniteLoading>
@@ -45,7 +46,9 @@ export default {
       list: [],
     }
   },
-  created() {},
+  created() {
+    console.log(this.api)
+  },
   methods: {
     fetchData() {
       // 默认参数
@@ -71,5 +74,6 @@ export default {
 
 </script>
 <style scoped>
+
 
 </style>
