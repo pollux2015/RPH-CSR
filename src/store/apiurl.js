@@ -8,4 +8,5 @@ export default {
   'logout': 'POST,/admin/index/logout',
   
   'userInfo': 'GET,/user/info',
+  'msgList': 'GET,/msg/list',
 };
