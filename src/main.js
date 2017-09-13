@@ -8,6 +8,7 @@ import Home from './components/HelloFromVux'
 import Iconfont from './fonts/iconfont.css'
 import store from './store/index';
 
+// lodash
 import Lodash from 'lodash';
 Object.defineProperty(Vue.prototype, '$lodash', {
   get: function get() {
@@ -23,12 +24,15 @@ const router = Routes;
 import Apis from './store/apis.js'
 Vue.use(Apis);
 
-import {Panel, Group, Cell, XButton } from 'vux'
+// import Scroll from 'vue-mugen-scroll'
+import InfiniteLoading from './components/basic/srcoller';
 
+import {Panel, Group, Cell, XButton } from 'vux'
 Vue.component('Panel', Panel);
 Vue.component('Group', Group);
 Vue.component('Cell', Cell);
 Vue.component('XButton', XButton);
+Vue.component('InfiniteLoading', InfiniteLoading);
 
 
 
