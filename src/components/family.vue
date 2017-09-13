@@ -1,7 +1,7 @@
 <template>
   <div class="mine">
     <group v-if="!isDelete" :title="'共位家庭成员' + familyList.length">
-      <cell :title="cellItem.name" v-for="(cellItem, index) in familyList" :inline-desc='cellItem.phone' :key="index" :islink="true">
+      <cell :title="cellItem.name" v-for="(cellItem, index) in familyList" :inline-desc='cellItem.phone' :key="index" :islink="true" :link="'/family/' + cellItem.id">
         <span slot="icon" class="cell-icon">
           <img :src="cellItem.avatar">
         </span>
@@ -33,7 +33,7 @@
       <p slot="header">确定删除?</p>
     </actionsheet>
     <div style="margin:20px 10px">
-      <x-button type="primary" plain v-if="!isDelete">添加成员</x-button>
+      <x-button type="primary" plain v-if="!isDelete" link="/family/add">添加成员</x-button>
       <x-button type="warn" plain v-if="!isDelete" @click.native="toggleDelete">删除成员</x-button>
       <flexbox>
         <flexbox-item>

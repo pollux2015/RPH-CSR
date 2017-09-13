@@ -8,7 +8,7 @@ let aipurl_ = {};
 const url = lodash.forEach(aipurl, (item, key) => {
   let orgUrl = item.split(',')[1];
   let orgUrlAr = orgUrl.split('/');
-  aipurl_[key] = RegExp(orgUrlAr.join('\/'));
+  aipurl_[key] = RegExp(orgUrl);
 });
 
 // 静态变量
@@ -89,14 +89,28 @@ Mock.mock(aipurl_.familyInfo, {
   code: 1,
   data: {
     'id|+1': [1, 2, 3, 4],
+    'wxname': 'POLLUX2017',
     'name|1': ['张晓明', '黄磊', '陈奕迅', '李四'],
     'phone|1': ['186*****411', '139*****520'],
-    'nike|1': ['一头小白菜', '追追'],
+    'nickname|1': ['一头小白菜', '追追'],
+    'birth': '@date',
     'avatar|1': ['http://img5.imgtn.bdimg.com/it/u=1548619045,2820406340&fm=27&gp=0.jpg', 'http://img5.imgtn.bdimg.com/it/u=3669894204,967945959&fm=27&gp=0.jpg', 'http://img2.imgtn.bdimg.com/it/u=1457831063,3293502031&fm=27&gp=0.jpg'],
     'status|1': ['挂失中', '审核中'],
     'tip|1': ['该用户已于2018-08-09日申请']
-
   }
 });
+
+Mock.mock(aipurl_.familyEdit, {
+  code: 1,
+  msg: '编辑成功'
+});
+
+Mock.mock(aipurl_.reportLost, {
+  code: 1,
+  msg: '挂失成功'
+});
+
+
+
 
 

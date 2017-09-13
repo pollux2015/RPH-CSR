@@ -27,7 +27,7 @@ Vue.use(Apis);
 // import Scroll from 'vue-mugen-scroll'
 import LoadMore from './components/basic/srcoller';
 
-import {Panel, Group, Cell, XButton, Checker, CheckerItem, Flexbox, FlexboxItem, ToastPlugin, Actionsheet, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress, XTextarea, XSwitch } from 'vux'
+import {Panel, Group, Cell, XButton, Checker, CheckerItem, Flexbox, FlexboxItem, ToastPlugin, Actionsheet, Selector, PopupPicker, Datetime, XNumber, XInput, ChinaAddressData, XAddress, XTextarea, XSwitch, ConfirmPlugin, Alert } from 'vux'
 
 
 Vue.component('Panel', Panel);
@@ -47,7 +47,11 @@ Vue.component('ChinaAddressData', ChinaAddressData);
 Vue.component('XAddress', XAddress);
 Vue.component('XTextarea', XTextarea);
 Vue.component('XSwitch', XSwitch);
+Vue.component('XInput', XInput);
 
+
+Vue.component('Alert', Alert);
+Vue.use(ConfirmPlugin)
 Vue.use(ToastPlugin)
 
 

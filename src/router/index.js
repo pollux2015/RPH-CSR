@@ -38,12 +38,18 @@ const routerAssitant = new Router({
       meta: { title: '家庭成员' },
       component: family
     },
-    // {
-    //   path: '/family/:id',
-    //   name: 'family.info',
-    //   meta: { title: '编辑成员' },
-    //   component: familyEdit
-    // },
+    {
+      path: '/family/:id',
+      name: 'family.info',
+      meta: { title: '编辑成员' },
+      component: familyEdit
+    },
+    {
+      path: '/family/add',
+      name: 'family.add',
+      meta: { title: '添加成员' },
+      component: familyEdit
+    },
     {
       path: '/order',
       name: 'order',
