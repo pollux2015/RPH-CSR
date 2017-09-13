@@ -1,41 +1,49 @@
 <template>
-  <div class="mine">
+  <div class="mine" style="height:100px;">
     <panel type="5" :key="msgGroup.date" v-for="msgGroup in msgList" :list="msgGroup.list" :header="msgGroup.date">
-    	<div slot="src">321</div>
+      <div slot="src"></div>
     </panel>
+     <InfiniteLoading api="msgList" v-model="msgList" :params="{name: 1, cid: 2}"></InfiniteLoading>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      msgList: [{
-        date: '2017年08月09日',
-        list: [{
-          src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-          title: '水费账单提醒',
-          desc: '新增#水费账单#42.00元,请于2017-07-08日24时钱完成支付.'
-        }, {
-          src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-          title: '电费账单提醒',
-          desc: '新增#电费账单#42.00元,请于2017-07-08日24时钱完成支付.'
-        }]
-      },{
-        date: '2017年08月11日',
-        list: [{
-          src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-          title: '水费账单提醒',
-          desc: '新增#水费账单#42.00元,请于2017-07-08日24时钱完成支付.'
-        }, {
-          src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-          title: '电费账单提醒',
-          desc: '新增#电费账单#42.00元,请于2017-07-08日24时钱完成支付.'
-        }]
-      }]
+      avatars: {
+        '1': 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+        '2': 'http://placeholder.qiniudn.com/60x60/3cc51f/222',
+        '3': 'http://placeholder.qiniudn.com/60x60/3cc51f/fd0000',
+        'other': 'http://placeholder.qiniudn.com/60x60/3cc51f/fd0000',
+      },
+      msgList: []
     }
   },
-  created() {
-    // console.log(this.$methods.api())
+  watch: {
+    msgList(){
+      this.$lodash.forEach(this.msgList, (group) => {
+        this.$lodash.forEach(group.list || [], (item) => {
+          item.src = this.avatars[item.scope];
+        });
+      });
+    }
+  },
+  methods:{
+    fetchData(){
+      this.$apis.msgList().then(res => {
+        this.$lodash.forEach(res.data, (group) => {
+          this.$lodash.forEach(group.list || [], (item) => {
+            item.src = this.avatars[item.scope];
+          });
+        });
+
+        this.msgList = this.msgList.concat(res.data);
+        setTimeout(() => {
+          this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
+          // this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+        }, 600)
+      });
+    }
   }
 }
 
