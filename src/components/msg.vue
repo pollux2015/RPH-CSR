@@ -3,7 +3,7 @@
     <panel type="5" :key="msgGroup.date" v-for="msgGroup in msgList" :list="msgGroup.list" :header="msgGroup.date">
       <div slot="src"></div>
     </panel>
-     <InfiniteLoading api="msgList" v-model="msgList" :params="{name: 1, cid: 2}"></InfiniteLoading>
+     <LoadMore api="msgList" v-model="msgList" :params="{name: 1, cid: 2}"></LoadMore>
   </div>
 </template>
 <script>
@@ -29,21 +29,6 @@ export default {
     }
   },
   methods:{
-    fetchData(){
-      this.$apis.msgList().then(res => {
-        this.$lodash.forEach(res.data, (group) => {
-          this.$lodash.forEach(group.list || [], (item) => {
-            item.src = this.avatars[item.scope];
-          });
-        });
-
-        this.msgList = this.msgList.concat(res.data);
-        setTimeout(() => {
-          this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
-          // this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
-        }, 600)
-      });
-    }
   }
 }
 
