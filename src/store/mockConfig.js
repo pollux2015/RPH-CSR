@@ -96,7 +96,7 @@ Mock.mock(aipurl_.familyInfo, {
     'birth': '@date',
     'avatar|1': ['http://img5.imgtn.bdimg.com/it/u=1548619045,2820406340&fm=27&gp=0.jpg', 'http://img5.imgtn.bdimg.com/it/u=3669894204,967945959&fm=27&gp=0.jpg', 'http://img2.imgtn.bdimg.com/it/u=1457831063,3293502031&fm=27&gp=0.jpg'],
     'status|1': ['挂失中', '审核中'],
-    'tip|1': ['该用户已于2018-08-09日申请']
+    'tips|3': ['该用户已申请挂失', '该用户已冻结于2018-08-09日']
   }
 });
 

@@ -1,5 +1,10 @@
 <template>
   <div class="mine">
+    <div class="marquee-outer" v-if="info.tips && info.tips.length">
+      <marquee>
+        <marquee-item v-for="i in info.tips" :key="i" class="align-middle">{{i}}</marquee-item>
+      </marquee>
+    </div>
     <group v-if="isEdit" label-width="4.5em" label-margin-right="2em" label-align="left">
       <cell title="头像" value="value" is-link>
         <img :src="info.avatar" style="width: 40px; height: 40px;">
@@ -19,7 +24,11 @@
   </div>
 </template>
 <script>
+import { Marquee, MarqueeItem } from 'vux'
 export default {
+  components: {
+    Marquee, MarqueeItem
+  },
   data() {
     return {
       familyCheck: [],
@@ -93,6 +102,13 @@ export default {
 
 .cell-icon img {
   width: 100%;
+}
+
+.marquee-outer{
+  padding: 5px 0;
+  text-align: center;
+  background-color: #FDD047;
+  color: #352a0a;
 }
 
 </style>
