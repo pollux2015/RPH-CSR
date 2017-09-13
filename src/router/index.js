@@ -4,6 +4,7 @@ import home from '@/components/home'
 import mine from '@/components/Mine'
 import msg from '@/components/Msg'
 import family from '@/components/family'
+import familyEdit from '@/components/family.edit'
 import order from '@/components/order'
 import repair from '@/components/repair'
 import complain from '@/components/complain'
@@ -37,6 +38,12 @@ const routerAssitant = new Router({
       meta: { title: '家庭成员' },
       component: family
     },
+    // {
+    //   path: '/family/:id',
+    //   name: 'family.info',
+    //   meta: { title: '编辑成员' },
+    //   component: familyEdit
+    // },
     {
       path: '/order',
       name: 'order',

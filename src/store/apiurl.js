@@ -9,4 +9,7 @@ export default {
   
   'userInfo': 'GET,/user/info',
   'msgList': 'GET,/msg/list',
+  'famliyList': 'GET,/family',
+  'familyDelete': 'POST,/delete',
+  'familyInfo': 'GET,/family/info'
 };
