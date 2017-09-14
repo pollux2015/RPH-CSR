@@ -14,4 +14,8 @@ export default {
   'familyInfo': 'GET,/family/info',
   'familyEdit': 'POST,/family/edit',
   'reportLost': 'POST,/report/lost',
+
+
+  'orderList': 'POST,/order/list',
+
 };
