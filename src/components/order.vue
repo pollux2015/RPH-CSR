@@ -35,7 +35,7 @@
 </template>
 <script>
 import moment from 'moment';
-moment.lang('zh-cn');
+moment.locale('zh-cn');
 export default {
   data() {
     return {
