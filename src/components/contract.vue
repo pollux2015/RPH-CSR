@@ -15,7 +15,7 @@
     </group>
     <div class="line-after" style="background: #fff;">
       <div class="weui-form-preview__ft">
-        <a :href="'tel:'+contract.tel+ '#mp.weixin.qq.com'" class="weui-form-preview__btn weui-form-preview__btn_default">联系物业</a>
+        <a :href="'tel:'+contract.tel" class="weui-form-preview__btn weui-form-preview__btn_default">联系物业</a>
         <a :href="'#contract/atta/'+ contract.id" class="weui-form-preview__btn weui-form-preview__btn_primary">电子合同</a>
         <a :href="'#contract/order/'+ contract.id" class="weui-form-preview__btn weui-form-preview__btn_primary">查看账单</a>
       </div>
