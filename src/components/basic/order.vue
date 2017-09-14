@@ -1,11 +1,8 @@
 <template>
   <div class="order">
-    <sticky v-if="title" scroll-box="vux_view_box_body" :offset="offset" :check-sticky-support="false" ref="sticky">
-      <div class="sticky-header">
-        {{title}}
-      </div>
-    </sticky>
-    
+    <div class="sticky-header" v-if="title">
+      {{title}}
+    </div>
     <div v-for="orderItem in orderList">
       <div class="moment-outer">
         <span class="moment">{{moment(orderItem.date) + '前'}}</span>
@@ -48,10 +45,6 @@ export default {
     Sticky
   },
   props: {
-    // title: {
-    //   type: String,
-    //   default: ''
-    // },
     offset: {
       type: Number,
       default: 46
