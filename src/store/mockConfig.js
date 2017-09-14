@@ -242,3 +242,43 @@ Mock.mock(aipurl_.checkout, {
   code: 1,
   msg: '申请成功'
 });
+
+
+// 退房
+Mock.mock(aipurl_.reletInfo, {
+  code: 1,
+  'data': {
+    'id': '@id',
+    'tel': '10086',
+    'cost': '20000',
+    'status|1': [0, 1],
+    'status_': '已于2016-08-09日提交续租申请, 请耐心等待',
+    'list': [{
+      label: '项目',
+      'value|1': ['伴山家园B345', '四海家园']
+    }, {
+      label: '起止时间',
+      value: '2016-09-08至2017-09-08'
+    }, {
+      label: '付款方式',
+      value: '付一压二'
+    }, {
+      label: '房屋押金',
+      value: '5000元'
+    }, {
+      label: '管理费',
+      value: '100元'
+    }, {
+      label: '物业管理',
+      value: '中海物业管理公司'
+    }, {
+      label: '备注',
+      value: '已申请钥匙一把'
+    }]
+  }
+});
+
+Mock.mock(aipurl_.contractRelet, {
+  code: 1,
+  msg: '申请成功'
+});

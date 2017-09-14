@@ -9,6 +9,7 @@ import order from '@/components/order'
 import repair from '@/components/repair'
 import complain from '@/components/complain'
 import checkout from '@/components/checkout'
+import relet from '@/components/relet'
 import contract from '@/components/contract'
 import contractAtta from '@/components/contract.atta'
 import contractOrder from '@/components/contract.order'
@@ -75,6 +76,12 @@ const routerAssitant = new Router({
       name: 'checkout',
       meta: { title: '申请退房' },
       component: checkout
+    },
+    {
+      path: '/relet',
+      name: 'relet',
+      meta: { title: '申请续租' },
+      component: relet
     },
     {
       path: '/contract',

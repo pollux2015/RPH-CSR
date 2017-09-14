@@ -21,7 +21,7 @@
       </div>
     </div>
     <div style="margin: 20px 10px" v-if="contract.status > 0">
-      <x-button type="warn" plain>申请续租</x-button>
+      <x-button type="warn" plain link="/relet">申请续租</x-button>
     </div>
   </div>
   </div>
