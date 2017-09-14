@@ -60,11 +60,22 @@ export default {
       const _this = this
       this.$vux.confirm.prompt('请输入手机验证码', {
         title: '确认挂失' + this.info.name + '?',
+        'closeOnConfirm': false,
         onConfirm: (msg) => {
+          if(!msg){
+            this.$vux.toast.show({
+              type: 'text',
+              position: 'bottom',
+              width: '180px',
+              text: '请填写手机验证码',
+            });
+            return;
+          }
           this.$apis.reportLost().then(res => {
             this.$vux.toast.show({
               text: '挂失成功',
             });
+            _this.$vux.confirm.hide();
             this.getFamilyInfo();
           });
         }
