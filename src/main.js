@@ -4,7 +4,6 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
-import Home from './components/HelloFromVux'
 import Iconfont from './fonts/iconfont.css'
 import store from './store/index';
 
@@ -25,16 +24,16 @@ import Apis from './store/apis.js'
 Vue.use(Apis);
 
 // import Scroll from 'vue-mugen-scroll'
-import LoadMore from './components/basic/srcoller';
+import LoadMore from './components/basic/loadmore';
+import Order from './components/basic/order';
+Vue.component('LoadMore', LoadMore);
+Vue.component('Order', Order);
 
 import {Panel, Group, Cell, XButton, Checker, CheckerItem, Flexbox, FlexboxItem, ToastPlugin, Actionsheet, Selector, PopupPicker, Datetime, XNumber, XInput, ChinaAddressData, XAddress, XTextarea, XSwitch, ConfirmPlugin, Alert } from 'vux'
-
-
 Vue.component('Panel', Panel);
 Vue.component('Group', Group);
 Vue.component('Cell', Cell);
 Vue.component('XButton', XButton);
-Vue.component('LoadMore', LoadMore);
 Vue.component('Checker', Checker);
 Vue.component('CheckerItem', CheckerItem);
 Vue.component('Flexbox', Flexbox);

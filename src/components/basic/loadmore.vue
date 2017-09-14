@@ -63,6 +63,7 @@ export default {
       this.$apis[this.api](params_).then(res => {
         this.page = res.page || {};
         this.$emit("input", this.value.concat(res.data));
+        this.$emit('fetch', res);
         setTimeout(() => {
           this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
         }, 600);
