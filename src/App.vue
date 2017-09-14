@@ -61,38 +61,40 @@ body {
 }
 
 .line-before,
-.line-after{
+.line-after {
   position: relative;
-}
-.line-before:before,
-.line-after:after{
-    content: " ";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    color: #C0BFC4;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
 }
 
 .line-before:before,
-.line-after:after{
+.line-after:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  color: #C0BFC4;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.line-before:before {
+  top: 0 !important;
   border-top: 1px solid #C0BFC4;
 }
 
-.line-before:before{
-    top: 0;
+.line-after:after {
+  bottom: 0 !important;
+  border-bottom: 1px solid #C0BFC4;
 }
 
-.line-after:after{
-    bottom: 0;
+.line-before-dot:before {
+  border-top: 1px dashed #C0BFC4;
 }
-.line-before-dot:before,
-.line-after-dot:after{
-  border-top-style: dashed;
+
+.line-after-dot:after {
+  border-bottom: 1px dashed #C0BFC4;
 }
 
 </style>
