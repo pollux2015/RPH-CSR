@@ -251,7 +251,7 @@ Mock.mock(aipurl_.reletInfo, {
     'id': '@id',
     'tel': '10086',
     'cost': '20000',
-    'status|1': [0, 1],
+    'status|+1': [0, 1],
     'status_': '已于2016-08-09日提交续租申请, 请耐心等待',
     'list': [{
       label: '项目',
