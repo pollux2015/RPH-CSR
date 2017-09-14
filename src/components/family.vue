@@ -1,7 +1,7 @@
 <template>
   <div class="mine">
     <group v-if="!isDelete" :title="'共位家庭成员' + familyList.length">
-      <cell :title="cellItem.name +' ( '+ cellItem.status +' )'" v-for="(cellItem, index) in familyList" :inline-desc='cellItem.phone' :key="index" :islink="true" :link="'/family/' + cellItem.id">
+      <cell :title="cellItem.name +' ( '+ cellItem.status +' )'" v-for="(cellItem, index) in familyList" :inline-desc='cellItem.phone' :key="index" :isLink="true" :link="'/family/' + cellItem.id">
         <span slot="icon" class="cell-icon">
           <img :src="cellItem.avatar">
         </span>
