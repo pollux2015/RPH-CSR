@@ -10,6 +10,8 @@ import repair from '@/components/repair'
 import complain from '@/components/complain'
 import checkout from '@/components/checkout'
 import contract from '@/components/contract'
+import contractAtta from '@/components/contract.atta'
+import contractOrder from '@/components/contract.order'
 import store from '../store/index';
 Vue.use(Router)
 
@@ -79,6 +81,18 @@ const routerAssitant = new Router({
       name: 'contract',
       meta: { title: '合同租期' },
       component: contract
+    },
+    {
+      path: '/contract/atta/:id',
+      name: 'contract.atta',
+      meta: { title: '电子合同' },
+      component: contractAtta
+    },
+    {
+      path: '/contract/order/:id',
+      name: 'contract.order',
+      meta: { title: '查看账单' },
+      component: contractOrder
     }
   ]
 });

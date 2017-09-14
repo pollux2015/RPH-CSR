@@ -110,11 +110,11 @@ Mock.mock(aipurl_.reportLost, {
   msg: '挂失成功'
 });
 
-// 缴费情况// 消息列表
+// 缴费情况
 Mock.mock(aipurl_.orderList, {
   code: 1,
   'data|5': [{
-    'payway|1': [1,2],
+    'payway|1': [1, 2],
     'payway_|1': ['微信支付', '支付宝支付'],
     'price|1-100.1-2': 1,
     'title|1': [
@@ -123,7 +123,7 @@ Mock.mock(aipurl_.orderList, {
       '物业费账单'
     ],
     'company|1': ['深圳市腾讯科技', '阿里巴巴', '深圳大学'],
-    'status|1': [1,0],
+    'status|1': [1, 0],
     'date|1': ['2017-9-14 11:11:12', '2017-9-13 11:11:12', '2017-9-12 11:11:12', '2017-9-14 11:11:12']
   }],
   page: {
@@ -136,6 +136,70 @@ Mock.mock(aipurl_.orderList, {
 });
 
 
+// 合同
+Mock.mock(aipurl_.contractInfo, {
+  code: 1,
+  'data|2': [{
+    id: '@id',
+    'status|+1': [1, 0],
+    tel: '10086',
+    list: [{
+      label: '项目',
+      'value|1': ['伴山家园B345', '四海家园']
+    }, {
+      label: '起止时间',
+      value: '2016-09-08至2017-09-08'
+    }, {
+      label: '付款方式',
+      value: '付一压二'
+    }, {
+      label: '房屋押金',
+      value: '5000元'
+    }, {
+      label: '管理费',
+      value: '100元'
+    }, {
+      label: '物业管理',
+      value: '中海物业管理公司'
+    }, {
+      label: '备注',
+      value: '已申请钥匙一把'
+    }]
+  }]
+});
 
+Mock.mock(aipurl_.contractAtta, {
+  code: 1,
+  'data|2': [
+    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505384821807&di=eca1a3f13554fa5c0c935e87cff8fff9&imgtype=0&src=http%3A%2F%2Fww2.sinaimg.cn%2Flarge%2F0065kURStw1es058eaeszj30kz0y0do4.jpg',
+    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505384821806&di=66ca2ef2d0d6bad7b521f16e7fc86361&imgtype=0&src=http%3A%2F%2Fimg003.21cnimg.com%2Fphotos%2Falbum%2F20161110%2Fo%2F58A093BD3F2798DBF5EC10FA312B9998.jpeg',
+    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505384821806&di=66ca2ef2d0d6bad7b521f16e7fc86361&imgtype=0&src=http%3A%2F%2Fimg003.21cnimg.com%2Fphotos%2Falbum%2F20161110%2Fo%2F58A093BD3F2798DBF5EC10FA312B9998.jpeg',
+    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505384821806&di=66ca2ef2d0d6bad7b521f16e7fc86361&imgtype=0&src=http%3A%2F%2Fimg003.21cnimg.com%2Fphotos%2Falbum%2F20161110%2Fo%2F58A093BD3F2798DBF5EC10FA312B9998.jpeg',
+    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505384821806&di=66ca2ef2d0d6bad7b521f16e7fc86361&imgtype=0&src=http%3A%2F%2Fimg003.21cnimg.com%2Fphotos%2Falbum%2F20161110%2Fo%2F58A093BD3F2798DBF5EC10FA312B9998.jpeg',
+  ]
+});
 
-
+Mock.mock(aipurl_.contractOrder, {
+  code: 1,
+  'title|1': ['伴山家园项目', '四海新城项目'],
+  'data|5': [{
+    'payway|1': [1, 2],
+    'payway_|1': ['微信支付', '支付宝支付'],
+    'price|1-100.1-2': 1,
+    'title|1': [
+      '水费账单',
+      '电费账单',
+      '物业费账单'
+    ],
+    'company|1': ['深圳市腾讯科技', '阿里巴巴', '深圳大学'],
+    'status|1': [1, 0],
+    'date|1': ['2017-9-14 11:11:12', '2017-9-13 11:11:12', '2017-9-12 11:11:12', '2017-9-14 11:11:12']
+  }],
+  page: {
+    total: 20,
+    page: 1,
+    'cur|1-10': 5,
+    pagesize: 3,
+    pages: 10
+  }
+});

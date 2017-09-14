@@ -16,6 +16,10 @@ export default {
   'reportLost': 'POST,/report/lost',
 
 
-  'orderList': 'POST,/order/list',
+  'orderList': 'GET,/order/list',
+
+  'contractInfo': 'GET,/contract/info',
+  'contractAtta': 'GET,/contract/atta',
+  'contractOrder': 'GET,/contract/order',
 
 };
