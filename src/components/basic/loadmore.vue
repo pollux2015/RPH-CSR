@@ -49,7 +49,7 @@ export default {
   created() {
   },
   methods: {
-    fetchData() {
+    fetchData($state) {
       // 默认参数
       let defaultParams = {
         page: this.page.cur + 1 || 1,
@@ -58,7 +58,8 @@ export default {
 
       const params_ = this.$lodash.assign(defaultParams, this.params);
       if (params_.page >= this.page.pages) {
-        this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+        // this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
+        $state.complete();
       }
       this.$apis[this.api](params_).then(res => {
         this.page = res.page || {};
@@ -66,6 +67,7 @@ export default {
         this.$emit('fetch', res);
         setTimeout(() => {
           this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
+          $state.loaded();
         }, 600);
       })
     }
