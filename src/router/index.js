@@ -9,6 +9,8 @@ import order from '@/components/order'
 import repair from '@/components/repair'
 import repairAdd from '@/components/repair.add'
 import repairInfo from '@/components/repair.info'
+import complainAdd from '@/components/complain.add'
+import complainEdit from '@/components/complain.edit'
 import complain from '@/components/complain'
 import checkout from '@/components/checkout'
 import relet from '@/components/relet'
@@ -84,6 +86,18 @@ const routerAssitant = new Router({
       name: 'complain',
       meta: { title: '投诉建议' },
       component: complain
+    },
+    {
+      path: '/complain/add',
+      name: 'complain.add',
+      meta: { title: '发起投诉' },
+      component: complainAdd
+    },
+    {
+      path: '/complain/:id',
+      name: 'complain.info',
+      meta: { title: '投诉详情' },
+      component: complainEdit
     },
     {
       path: '/checkout',

@@ -345,3 +345,66 @@ Mock.mock(aipurl_.repairInfo, {
     }]
   }
 });
+
+Mock.mock(aipurl_.complainList, {
+  code: 1,
+  'data|1-3': [{
+    'id': '@id',
+    'start_time': '@date("yyyy年MM月dd日")',
+    'status': '已解决',
+    'status_code': 1,
+    'content': '物业费用:5月份物业费用有误',
+    'images|1-2': ['http://img5.imgtn.bdimg.com/it/u=1548619045,2820406340&fm=27&gp=0.jpg', 'http://img5.imgtn.bdimg.com/it/u=3669894204,967945959&fm=27&gp=0.jpg', 'http://img2.imgtn.bdimg.com/it/u=1457831063,3293502031&fm=27&gp=0.jpg']
+  }, {
+    'id': '@id',
+    'start_time': '@date("yyyy年MM月dd日")',
+    'status': '待解决',
+    'status_code': 0,
+    'content': '物业费用:12月份物业费用有误',
+    'images|1-2': ['http://img5.imgtn.bdimg.com/it/u=1548619045,2820406340&fm=27&gp=0.jpg', 'http://img5.imgtn.bdimg.com/it/u=3669894204,967945959&fm=27&gp=0.jpg', 'http://img2.imgtn.bdimg.com/it/u=1457831063,3293502031&fm=27&gp=0.jpg']
+  }],
+  page: {
+    total: 20,
+    page: 1,
+    'cur|1-10': 5,
+    pagesize: 3,
+    pages: 10
+  }
+});
+
+Mock.mock(aipurl_.complainSave, {
+  code: 1,
+  msg: '保存成功'
+});
+
+Mock.mock(aipurl_.repairInfo, {
+  code: 1,
+  'data': {
+    'id': '@id',
+    'type': '家居损坏',
+    'content': '',
+    'date': '2017-08-09',
+    'content': '家居损坏:从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷',
+    'step': 1,
+    'steps': [{
+      'name': '发起申请',
+      'date': '2017-08-09'
+    }, {
+      'name': '上门服务',
+      'date': '等待'
+    }, {
+      'name': '维修完成',
+      'date': '等待'
+    }],
+    'history': [{
+      title: '已安排工程师刘工(18664357411)',
+      date: '2017-08-09'
+    }, {
+      title: '物业已通过您的申请',
+      date: '2017-08-09'
+    }, {
+      title: '您提交了维护家居顺坏',
+      date: '2017-08-09'
+    }]
+  }
+});
