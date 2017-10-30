@@ -29,7 +29,8 @@ import Order from './components/basic/order';
 Vue.component('LoadMore', LoadMore);
 Vue.component('Order', Order);
 
-import {Panel, Group, Cell, XButton, Checker, CheckerItem, Flexbox, FlexboxItem, ToastPlugin, Actionsheet, Selector, PopupPicker, Datetime, XNumber, XInput, ChinaAddressData, XAddress, XTextarea, XSwitch, ConfirmPlugin, Alert, Grid, GridItem, Swiper, SwiperItem, Card, Popup , Timeline, TimelineItem, Step, StepItem} from 'vux'
+import {Spinner, Panel, Group, Cell, XButton, Checker, CheckerItem, Flexbox, FlexboxItem, ToastPlugin, Actionsheet, Selector, PopupPicker, Datetime, XNumber, XInput, ChinaAddressData, XAddress, XTextarea, XSwitch, ConfirmPlugin, Alert, Grid, GridItem, Swiper, SwiperItem, Card, Popup , Timeline, TimelineItem, Step, StepItem, Countup} from 'vux'
+Vue.component('Spinner', Spinner);
 Vue.component('Panel', Panel);
 Vue.component('Group', Group);
 Vue.component('Cell', Cell);
@@ -58,6 +59,7 @@ Vue.component('Timeline', Timeline);
 Vue.component('TimelineItem', TimelineItem);
 Vue.component('Step', Step);
 Vue.component('StepItem', StepItem);
+Vue.component('Countup', Countup);
 Vue.use(ConfirmPlugin)
 Vue.use(ToastPlugin)
 

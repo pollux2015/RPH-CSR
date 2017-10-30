@@ -6,6 +6,10 @@ export default {
   // Common
   'login': 'POST,/admin/index/login',
   'logout': 'POST,/admin/index/logout',
+  'unlockByWechat': 'POST,/admin/getCode',
+  'unlockByCode': 'POST,/admin/unlockByCode',
+  'getCode': 'get,/admin/getCode',
+  'homeData': 'get,/admin/homeData',
 
   'userInfo': 'GET,/user/info',
   'msgList': 'GET,/msg/list',

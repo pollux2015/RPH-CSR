@@ -410,3 +410,35 @@ Mock.mock(aipurl_.complainInfo, {
     }]
   }
 });
+
+
+Mock.mock(aipurl_.unlockByWechat, {
+  code: 1,
+  msg: '开锁成功'
+});
+
+Mock.mock(aipurl_.getCode, {
+  code: 1,
+  msg: '验证码已发送至您的手机'
+});
+
+Mock.mock(aipurl_.unlockByCode, {
+  code: 1,
+  msg: '开锁成功'
+});
+
+Mock.mock(aipurl_.homeData, {
+  code: 1,
+  'data': {
+    'doorPower|1-100': 1,
+    'msgNumber|1-100': 1,
+    'payNumber|1-100': 1,
+    'family|2-3': [{
+      'id|+1': [1, 2, 3, 4],
+      'name|1': ['张晓明', '黄磊', '陈奕迅', '李四'],
+      'phone|1': ['186*****411', '139*****520'],
+      'avatar|1': ['http://img5.imgtn.bdimg.com/it/u=1548619045,2820406340&fm=27&gp=0.jpg', 'http://img5.imgtn.bdimg.com/it/u=3669894204,967945959&fm=27&gp=0.jpg', 'http://img2.imgtn.bdimg.com/it/u=1457831063,3293502031&fm=27&gp=0.jpg'],
+      'status|1': ['挂失中', '审核中']
+    }]
+  }
+});
