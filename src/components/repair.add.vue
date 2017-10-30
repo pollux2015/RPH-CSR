@@ -58,7 +58,7 @@ export default {
           name: 'repair'
         });
         this.$vux.toast.show({
-          text: '保存成功'
+          text: '提交成功'
         });
       })
     }
