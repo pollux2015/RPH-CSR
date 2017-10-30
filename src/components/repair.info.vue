@@ -1,0 +1,147 @@
+<template>
+  <div>
+    <group label-margin-right="2em" label-align="left">
+      <cell title="申请人" :value="userInfo.name"></cell>
+      <cell title="预约时间" :value="info.date"></cell>
+      <cell title="类型" :value="info.type"></cell>
+      <div title="详情" style="padding: 15px;">{{info.content}}</div>
+    </group>
+    <Card>
+      <div class="info-header weui-panel__hd" slot="header">
+        <step v-model="info.step" v-if="info.steps">
+          <step-item v-for="(step, index) in info.steps" :key="index" :title="step.name" :description="step.date"></step-item>
+        </step>
+      </div>
+      <div slot="content">
+        <timeline v-if="info.history">
+          <timeline-item v-for="item in info.history">
+            <h4 class="recent">{{item.title}}</h4>
+            <p class="recent">{{item.date}}</p>
+          </timeline-item>
+        </timeline>
+      </div>
+    </Card>
+    <div>
+      <popup v-model="showPopup" class="checker-popup">
+        <div style="padding:10px 10px 40px 10px;">
+          <p style="padding: 5px 5px 5px 2px;color:#888;">选择类型</p>
+          <checker v-model="info.type" default-item-class="demo4-item" selected-item-class="demo4-item-selected" disabled-item-class="demo4-item-disabled">
+            <checker-item v-for="(type, key) in types" :value="key" :key="key" @on-item-click="onItemClick"> {{type}} </checker-item>
+          </checker>
+        </div>
+      </popup>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      showPopup: false,
+      types: {
+        0: '家居损坏',
+        1: '墙面损坏',
+        2: '电器损坏'
+      },
+      info: {
+        'id': '',
+        'type': 0,
+        'content': '',
+        'date': '2017-08-09',
+        'step': 1,
+        'steps': null,
+        'history': null
+      }
+    }
+  },
+  computed: {
+    userInfo() {
+      return this.$store.getters.userInfo;
+    }
+  },
+  created() {
+    this.$apis.repairInfo({
+      id: this.$route.params.id
+    }).then(res => {
+      this.info = res.data;
+    })
+  },
+  methods: {
+    onItemClick(value, disabled) {
+      if (!this.disabled) {
+        this.showPopup = false
+      }
+    },
+    saveForm() {
+      if (!this.info.content) {
+        return false;
+      }
+      this.$apis.familyEdit(this.info).then(res => {
+        this.$router.push({
+          name: 'repair'
+        });
+        this.$vux.toast.show({
+          text: '保存成功'
+        });
+      })
+    }
+  }
+}
+
+</script>
+<style scoped>
+.header-item {
+  font-size: 12px;
+}
+
+.header-item {
+  font-size: 12px;
+}
+
+.demo4-item {
+  background-color: #ddd;
+  color: #222;
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  line-height: 18px;
+  border-radius: 15px;
+}
+
+.demo4-item-selected {
+  background-color: #FF3B3B;
+  color: #fff;
+}
+
+.demo4-item-disabled {
+  color: #999;
+}
+
+.info-header {
+  padding: 15px;
+}
+
+.info-header a {
+  color: rgba(74, 67, 43, 1.00);
+}
+
+.info-header .weui-grids:before,
+.info-header .weui-grids:after {
+  display: none;
+}
+
+.info-header .weui-grid:before {
+  display: none;
+}
+
+.vux-timeline-item-content {
+  padding: 0 0 1.5rem 1.3rem !important;
+}
+
+.vux-timeline-item-content * {
+
+  color: #666;
+  font-weight: normal;
+}
+
+</style>

@@ -92,9 +92,7 @@ export default {
     }
   },
   created() {
-    this.$apis.userInfo().then(res => {
-      this.$store.commit('userInfo', res.data);
-    });
+    
   }
 }
 

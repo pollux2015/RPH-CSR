@@ -35,6 +35,11 @@ export default {
   data() {
     return {}
   },
+  created(){
+    this.$apis.userInfo().then(res => {
+      this.$store.commit('userInfo', res.data);
+    });
+  },
   computed: {
     routeName() {
       return this.$route.name;

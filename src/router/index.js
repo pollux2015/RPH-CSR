@@ -7,6 +7,8 @@ import family from '@/components/family'
 import familyEdit from '@/components/family.edit'
 import order from '@/components/order'
 import repair from '@/components/repair'
+import repairAdd from '@/components/repair.add'
+import repairInfo from '@/components/repair.info'
 import complain from '@/components/complain'
 import checkout from '@/components/checkout'
 import relet from '@/components/relet'
@@ -64,6 +66,18 @@ const routerAssitant = new Router({
       name: 'repair',
       meta: { title: '维修管理' },
       component: repair
+    },
+    {
+      path: '/repair/add',
+      name: 'repair.add',
+      meta: { title: '发起维修' },
+      component: repairAdd
+    },
+    {
+      path: '/repair/:id',
+      name: 'repair.info',
+      meta: { title: '详情' },
+      component: repairInfo
     },
     {
       path: '/complain',

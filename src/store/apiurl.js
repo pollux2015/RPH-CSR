@@ -31,6 +31,11 @@ export default {
   
   // 续租
   'reletInfo': 'POST,/relet/info',
-  'contractRelet': 'POST,/relet/contractRelet'
+  'contractRelet': 'POST,/relet/contractRelet',
+
+  // 维修
+  'repairList': 'POST,/relet/repairList',
+  'repairInfo': 'GET,/relet/repairInfo',
+  'repairSave': 'POST,/relet/repairSave',
 
 };
