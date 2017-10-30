@@ -4,10 +4,10 @@
       <previewer :list="viewlist" ref="previewer" :options="options"></previewer>
     </div>
     <div class="func-fixed" @click="goAdd()">
-      <div class="icon"><i class="iconfont icon-decoration_fill"></i></div>
+      <div class="icon"><i class="iconfont icon-customerservice_fill"></i></div>
       <span class="txt">发起投诉</span>
     </div>
-    <card v-for="item in complainList" :footer="{title: '查看详情', link:'/repair/' + item.id}">
+    <card v-for="item in complainList" :footer="{title: '查看详情', link:'/complain/' + item.id}">
       <div slot="header" class="weui-panel__hd">
         <span class="repair-date">{{item.start_time}}</span>
         <span class="repair-status" :class="{'repair-status-error': item.status_code == 0}">{{item.status}}</span>

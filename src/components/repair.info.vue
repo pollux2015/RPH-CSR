@@ -1,11 +1,21 @@
 <template>
   <div>
+  	<div v-transfer-dom>
+      <previewer :list="viewlist" ref="previewer" :options="options"></previewer>
+    </div>
     <group label-margin-right="2em" label-align="left">
       <cell title="申请人" :value="userInfo.name"></cell>
       <cell title="预约时间" :value="info.date"></cell>
       <cell title="类型" :value="info.type"></cell>
-      <div title="详情" style="padding: 15px;">{{info.content}}</div>
     </group>
+    <Card>
+    	<div slot="content" style="padding: 15px;">
+    		 <div style="color: #586C94">{{info.content}}</div>
+    		<div class="repair-img">
+          <span class="previewer-demo-img" width="100" v-for="(img, index) in info.images" @click="show(info.images, index)"><img :src="img"></span>
+        </div>
+    	</div>
+    </Card>
     <Card>
       <div class="info-header weui-panel__hd" slot="header">
         <step v-model="info.step" v-if="info.steps">
@@ -34,9 +44,17 @@
   </div>
 </template>
 <script>
+import { Previewer, TransferDom } from 'vux'
 export default {
+	directives: {
+    TransferDom
+  },
+  components: {
+    Previewer
+  },
   data() {
     return {
+    	viewlist: [],
       showPopup: false,
       types: {
         0: '家居损坏',
@@ -51,6 +69,14 @@ export default {
         'step': 1,
         'steps': null,
         'history': null
+      },
+      options: {
+        getThumbBoundsFn(index) {
+          let thumbnail = document.querySelectorAll('.previewer-demo-img')[index]
+          let pageYScroll = window.pageYOffset || document.documentElement.scrollTop
+          let rect = thumbnail.getBoundingClientRect()
+          return { x: rect.left, y: rect.top + pageYScroll, w: rect.width }
+        }
       }
     }
   },
@@ -83,6 +109,19 @@ export default {
         this.$vux.toast.show({
           text: '保存成功'
         });
+      })
+    },
+    show(list, index) {
+      const list_ = []
+      this.$lodash.forEach(list, (item) => {
+        list_.push({
+          src: item
+        })
+      })
+      this.viewlist = list_;
+      setTimeout(() => {
+        this.$refs.previewer.show(index)
+
       })
     }
   }
@@ -142,6 +181,23 @@ export default {
 
   color: #666;
   font-weight: normal;
+}
+
+.repair-img{
+	padding-top: 10px;
+}
+.repair-img span {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  background-color: #e5e1e1;
+  border-radius: 2px;
+  margin-right: 4px;
+}
+
+.repair-img img {
+  width: 100%;
 }
 
 </style>

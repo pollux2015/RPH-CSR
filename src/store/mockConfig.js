@@ -322,6 +322,7 @@ Mock.mock(aipurl_.repairInfo, {
     'content': '',
     'date': '2017-08-09',
     'content': '家居损坏:从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷',
+    'images|1-2': ['http://img5.imgtn.bdimg.com/it/u=1548619045,2820406340&fm=27&gp=0.jpg', 'http://img5.imgtn.bdimg.com/it/u=3669894204,967945959&fm=27&gp=0.jpg', 'http://img2.imgtn.bdimg.com/it/u=1457831063,3293502031&fm=27&gp=0.jpg'],
     'step': 1,
     'steps': [{
       'name': '发起申请',
@@ -377,27 +378,28 @@ Mock.mock(aipurl_.complainSave, {
   msg: '保存成功'
 });
 
-Mock.mock(aipurl_.repairInfo, {
+Mock.mock(aipurl_.complainInfo, {
   code: 1,
   'data': {
     'id': '@id',
-    'type': '家居损坏',
+    'type': '物业费用',
     'content': '',
     'date': '2017-08-09',
-    'content': '家居损坏:从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷从昨天开始我的冰箱就无法制冷',
+    'content': '家居损坏:2016年7月的5物业费用是多了150元',
+    'images|1-2': ['http://img5.imgtn.bdimg.com/it/u=1548619045,2820406340&fm=27&gp=0.jpg', 'http://img5.imgtn.bdimg.com/it/u=3669894204,967945959&fm=27&gp=0.jpg', 'http://img2.imgtn.bdimg.com/it/u=1457831063,3293502031&fm=27&gp=0.jpg'],
     'step': 1,
     'steps': [{
       'name': '发起申请',
       'date': '2017-08-09'
     }, {
-      'name': '上门服务',
+      'name': '安排处理',
       'date': '等待'
     }, {
-      'name': '维修完成',
+      'name': '处理完成',
       'date': '等待'
     }],
     'history': [{
-      title: '已安排工程师刘工(18664357411)',
+      title: '请保持手机畅通(18664357411), 24小时内我们将与您联系',
       date: '2017-08-09'
     }, {
       title: '物业已通过您的申请',
