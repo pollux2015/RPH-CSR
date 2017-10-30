@@ -6,15 +6,15 @@
       </x-header>
       <router-view></router-view>
       <tabbar slot="bottom">
-        <tabbar-item show-dot link="/msg">
+        <tabbar-item show-dot :selected="routeName == 'msg'" link="/msg">
           <i slot="icon" class="iconfont icon-interactive"></i>
           <span slot="label">消息</span>
         </tabbar-item>
-        <tabbar-item link="/">
+        <tabbar-item :selected="routeName == 'home'" link="/">
           <i slot="icon" class="iconfont icon-homepage"></i>
           <span slot="label">首页</span>
         </tabbar-item>
-        <tabbar-item selected link="/mine">
+        <tabbar-item :selected="routeName == 'mine'" link="/mine">
           <i slot="icon" class="iconfont icon-addressbook"></i>
           <span slot="label">我的</span>
         </tabbar-item>
