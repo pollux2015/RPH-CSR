@@ -1,6 +1,6 @@
 <template>
   <div class="mine">
-    <panel :list="userInfo" type="1"></panel>
+    <panel :list="userInfo" type="1" is-link></panel>
     <group>
       <cell :title="cellItem.title" :link="cellItem.link" v-for="(cellItem, index) in funsA" :key="index" is-link>
         <span slot="icon" class="cell-icon">
@@ -87,12 +87,13 @@ export default {
       return [{
         title: storInfo.name,
         src: storInfo.avatar,
-        desc: storInfo.phone
+        desc: storInfo.phone,
+        url: '/family/' + storInfo.id
       }];
     }
   },
   created() {
-    
+
   }
 }
 
